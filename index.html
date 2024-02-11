@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fi">
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; img-src 'self'; style-src 'self'; base-uri 'self'; form-action 'self'; connect-src 'self'; frame-ancestors 'none'" />
+        <meta charset="utf-8" />
+        <title>Henkilötunnuksien uudet välimerkit</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="Tarmo Turunen" />
+        <meta name="description" content="Henkilötunnuksien uudet välimerkit, esimerkkejä ja testaus." />
+        <script type="module" src="modules/new-fi-ssn.js"></script>
+        <script type="module" src="modules/importSSN.js"></script>
+        <link rel="stylesheet" href="css/bulma.min.css" type="text/css" />
+        <link rel="stylesheet" href="css/style.css" type="text/css" />
+        <link rel="icon" type="image/png" href="favicon_io/favicon-32x32.png" />
+    </head>
+
+    <body class="container my-3 px-5">
+        <h1 class="title">Henkilötunnuksien uudet välimerkit</h1>
+
+        <p>Uudet säännöt jotka koskevat henkilötunnuksia Suomessa (arvioitu voimaantulo kirjoitushetkellä 2024 huhtikuu)<sup><a href="#lahteet" title="Alkuperäinen artikkeli">1</a></sup>. Jos testaus suoritetaan hyväksyttävästi, palautetaan <code>true</code>, päinvastaisessa tapauksessa palautetaan <code>false</code>.</p> 
+
+        <h2 class="subtitle pt-3">Testaus</h2>
+
+        <div class="field has-addons">
+            <div class="control">
+                <input class="input" type="text" id="ssnInput" name="ssnInput" placeholder="Syötä testattava henkilötunnus" width="11" title="Syötä henkilötunnus" />
+            </div>
+            <div class="control">
+                <a class="button is-info" id="ssnButton" name="ssnButton" title="Tarkista noudattaako syötetty henkilötunnus sääntöjä (true|false)">Tarkista</a>
+            </div>
+        </div>
+       
+
+        <table class="table">
+            <thead>
+                <tr><th>Henkilötunnus:</th><th id="ssn-entered" colspan="5">...</th></tr>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>Validi hetu</th>
+                    <th>Validi 1800-luvun hetu</th>
+                    <th>Validi 1900-luvun hetu</th>
+                    <th>Validi 2000-luvun hetu</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td id="result1">...</td>
+                    <td id="result2">...</td>
+                    <td id="result3">...</td>
+                    <td id="result4">...</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </tbody>
+            <tbody id="dvv-data">
+                <tr>
+                    <th colspan="6">DVV:n kuvitteelisia testihenkilöitä<sup><a href="#lahteet" title="Linkki lähdeaineiston sivulle">2</a></sup></th>
+                </tr>
+                <tr>
+                    <td data-hetu="010594Y9032">010594Y9032</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="010594Y9021">010594Y9021</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="010594Y9021">010594Y9021</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="020594X903P">020594X903P</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="020594X903P">020594X903P</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="020594X902N">020594X902N</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="030594W903B">030594W903B</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="030694W9024">030694W9024</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="040594V9030">040594V9030</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="040594V902Y">040594V902Y</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="050594U903M">050594U903M</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="050594U902L">050594U902L</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="010516B903X">010516B903X</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="010516B902W">010516B902W</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="020516C903K">020516C903K</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="020516C902J">020516C902J</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="030516D9037">030516D9037</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="030516D9026">030516D9026</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="010501E9032">010501E9032</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="020502E902X">020502E902X</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="020503F9037">020503F9037</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="020504A902E">020504A902E</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+                <tr>
+                    <td data-hetu="020504B904H">020504B904H</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button class="button is-info">Tarkista</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="lahteet" class="subtitle">Lähteet</h2>
+        
+        <ol>
+            <li>Alkuperäinen artikkeli: <a href="https://dvv.fi/-/uudet-valimerkit-takaavat-henkilotunnusten-riittavyyden-tulevaisuudessa-ensimmaiset-uudenlaiset-henkilotunnukset-myonnetaan-arviolta-vuoden-paasta" title="Linkki sivulle jossa kerrotaan uusista henkilötunnuksista">Uudet välimerkit...</a></li>
+            <li>Excel-taulukko johon löytyy linkki <a href="https://dvv.fi/hetu-uudistus" title="Linkki DVV-datan alkuperäissivulle">tältä DVV:n sivulta</a>.</li>
+        </ol>
+        <footer class="footer">
+            <div class="content">
+                <ul>
+                    <li>CSS: <a href="https://bulma.io" title="CSS-kirjasto jota käytetty tätä tehtäessä" target="_blank" rel="noreferrer">Bulma</a></li>
+                    <li>Favico: <a href="https://favicon.io/" title="Favico tehty tätä sivustoa hyödyntäen" target="_blank" rel="noreferrer">favicon.io</a></li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+tbody[id=dvv-data] tr:not(:first-child):hover {
+    background: lightgray;
+}
+sup {
+    font-size: x-small;
+}
+footer {
+    font-size: smaller;
+}
+@media (prefers-color-scheme: dark) {
+    html { 
+        filter: invert(100%); 
+    }
+
+    img, button, a.button, input, .has-background-success-dark, .has-background-danger-dark { 
+        filter: invert(100%); 
+    }
+}
