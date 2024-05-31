@@ -12,7 +12,7 @@ footer {
         filter: invert(100%); 
     }
 
-    img, button, a.button, input, .has-background-success-dark, .has-background-danger-dark { 
+    img, button, a.button, input, .has-background-success-light, .has-background-danger-light { 
         filter: invert(100%); 
     }
 }

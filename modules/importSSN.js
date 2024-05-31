@@ -26,18 +26,19 @@ document.addEventListener('DOMContentLoaded', () => {
         result2.innerHTML = newSSN.valid1800(checkSSNEntry);
         result3.innerHTML = newSSN.valid1900(checkSSNEntry);
         result4.innerHTML = newSSN.valid2000(checkSSNEntry);
-
-        const listOfClasses = ['has-background-success-dark', 'has-background-danger-dark', 'has-text-light'];
+        
+        const listOfClasses = ['has-background-success-light', 'has-background-danger-light', 'has-text-black'];
         
         result1.classList.remove(...listOfClasses);
         result2.classList.remove(...listOfClasses);
         result3.classList.remove(...listOfClasses);
         result4.classList.remove(...listOfClasses);
 
-        resultingValue ? result1.classList.add('has-background-success-dark', 'has-text-light') : result1.classList.add('has-background-danger-dark', 'has-text-light');
-        newSSN.valid1800(checkSSNEntry) ? result2.classList.add('has-background-success-dark', 'has-text-light') : result2.classList.add('has-background-danger-dark', 'has-text-light');
-        newSSN.valid1900(checkSSNEntry) ? result3.classList.add('has-background-success-dark', 'has-text-light') : result3.classList.add('has-background-danger-dark', 'has-text-light');
-        newSSN.valid2000(checkSSNEntry) ? result4.classList.add('has-background-success-dark', 'has-text-light', 'has-text-light') : result4.classList.add('has-background-danger-dark', 'has-text-light');
+        resultingValue ? result1.classList.add('has-background-success-light', 'has-text-black') : result1.classList.add('has-background-danger-light', 'has-text-black');
+        newSSN.valid1800(checkSSNEntry) ? result2.classList.add('has-background-success-light', 'has-text-black') : result2.classList.add('has-background-danger-light', 'has-text-black');
+        newSSN.valid1900(checkSSNEntry) ? result3.classList.add('has-background-success-light', 'has-text-black') : result3.classList.add('has-background-danger-light', 'has-text-black');
+        newSSN.valid2000(checkSSNEntry) ? result4.classList.add('has-background-success-light', 'has-text-black', 'has-text-black') : result4.classList.add('has-background-danger-light', 'has-text-black');
+        
     });
 
     let rowButtons = dvvBody.getElementsByTagName('button');
@@ -64,9 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
         dvv1900.innerHTML = dvvSSN.valid1900(dvvDataAttr);
         dvv2000.innerHTML = dvvSSN.valid2000(dvvDataAttr);
 
-        dvvSSN.validate(dvvDataAttr) ? dvvValid.classList.add('has-background-success-dark', 'has-text-light') : dvvValid.classList.add('has-background-danger-dark', 'has-text-light');
-        dvvSSN.valid1800(dvvDataAttr) ? dvv1800.classList.add('has-background-success-dark', 'has-text-light') : dvv1800.classList.add('has-background-danger-dark', 'has-text-light');
-        dvvSSN.valid1900(dvvDataAttr) ? dvv1900.classList.add('has-background-success-dark', 'has-text-light') : dvv1900.classList.add('has-background-danger-dark', 'has-text-light');
-        dvvSSN.valid2000(dvvDataAttr) ? dvv2000.classList.add('has-background-success-dark', 'has-text-light') : dvv2000.classList.add('has-background-danger-dark', 'has-text-light');
+        dvvSSN.validate(dvvDataAttr) ? dvvValid.classList.add('has-background-success-light', 'has-text-black') : dvvValid.classList.add('has-background-danger-light', 'has-text-black');
+        dvvSSN.valid1800(dvvDataAttr) ? dvv1800.classList.add('has-background-success-light', 'has-text-black') : dvv1800.classList.add('has-background-danger-light', 'has-text-black');
+        dvvSSN.valid1900(dvvDataAttr) ? dvv1900.classList.add('has-background-success-light', 'has-text-black') : dvv1900.classList.add('has-background-danger-light', 'has-text-black');
+        dvvSSN.valid2000(dvvDataAttr) ? dvv2000.classList.add('has-background-success-light', 'has-text-black') : dvv2000.classList.add('has-background-danger-light', 'has-text-black');
     }
 });
